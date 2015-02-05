@@ -22,6 +22,7 @@ def process(response):
     settings['impact']=feeds_conf.get('alienvault','impact')
     settings['campaign']=feeds_conf.get('alienvault','campaign')
     settings['type']=feeds_conf.get('alienvault','type')
+    settings['reference']=feeds_conf.get('alienvault','reference')
     
     data = []
     for row in headless_xsv(response,headers,'#'):
@@ -46,7 +47,7 @@ def process(response):
         else:
             desc=settings['type']
         
-        data.append({'value':row['ipv4-addr'],'type':'ipv4-addr','description':desc,'date':'%s' % date,'confidence':confidence,'impact':impact,'campaign':settings['campaign']})
+        data.append({'value':row['ipv4-addr'],'type':'ipv4-addr','description':desc,'date':'%s' % date,'confidence':confidence,'impact':impact,'campaign':settings['campaign'],'reference':settings['reference']})
 
     return data
 

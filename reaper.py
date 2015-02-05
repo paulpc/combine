@@ -4,7 +4,11 @@ import json
 import sys
 from logger import get_logger
 import logging
-from parsers import *
+from parsers import zeustracker
+from parsers import sans
+from parsers import nothink_malware_dns
+from parsers import alienvault
+from parsers import malwaredomainslist
 
 logger = get_logger('reaper')
 

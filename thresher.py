@@ -6,7 +6,11 @@ import re
 import sys
 from logger import get_logger
 import logging
-from parsers import *
+from parsers import zeustracker
+from parsers import sans
+from parsers import nothink_malware_dns
+from parsers import alienvault
+from parsers import malwaredomainslist
 
 logger = get_logger('thresher')
 
@@ -27,7 +31,7 @@ def thresh(input_file, output_file):
 
     harvest = []
     # TODO: replace with a proper plugin system (cf. #23)
-    thresher_map = {'blocklist.de': generic.process_simple_list,
+    """thresher_map = {'blocklist.de': generic.process_simple_list,
                     'openbl': generic.process_simple_list,
                     'projecthoneypot': project_honeypot.process,
                     'ciarmy': generic.process_simple_list,
@@ -44,7 +48,7 @@ def thresh(input_file, output_file):
                     'dragonresearchgroup': drg.process,
                     'malwaregroup': malwaregroup.process,
                     'malc0de': generic.process_simple_list,
-                    'file://': generic.process_simple_list}
+                    'file://': generic.process_simple_list}"""
 
     # When we have plugins, this hack won't be necessary
     #for response in crop['inbound']:
